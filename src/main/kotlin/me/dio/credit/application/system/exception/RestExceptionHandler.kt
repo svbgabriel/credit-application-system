@@ -12,6 +12,11 @@ import java.time.LocalDateTime
 
 @RestControllerAdvice
 class RestExceptionHandler {
+
+  companion object {
+    private const val BAD_REQUEST_MESSAGE = "Bad Request! Consult the documentation"
+  }
+
   @ExceptionHandler(MethodArgumentNotValidException::class)
   fun handlerValidException(ex: MethodArgumentNotValidException): ResponseEntity<ExceptionDetails> {
     val erros: MutableMap<String, String?> = HashMap()
@@ -22,7 +27,7 @@ class RestExceptionHandler {
     }
     return ResponseEntity(
       ExceptionDetails(
-        title = "Bad Request! Consult the documentation",
+        title = BAD_REQUEST_MESSAGE,
         timestamp = LocalDateTime.now(),
         status = HttpStatus.BAD_REQUEST.value(),
         exception = ex.javaClass.toString(),
@@ -43,15 +48,6 @@ class RestExceptionHandler {
           details = mutableMapOf(ex.cause.toString() to ex.message)
         )
       )
-    /*return ResponseEntity(
-      ExceptionDetails(
-        title = "Bad Request! Consult the documentation",
-        timestamp = LocalDateTime.now(),
-        status = HttpStatus.CONFLICT.value(),
-        exception = ex.javaClass.toString(),
-        details = mutableMapOf(ex.cause.toString() to ex.message)
-      ), HttpStatus.CONFLICT
-    )*/
   }
 
   @ExceptionHandler(BusinessException::class)
@@ -59,7 +55,7 @@ class RestExceptionHandler {
     return ResponseEntity.status(HttpStatus.BAD_REQUEST)
       .body(
         ExceptionDetails(
-          title = "Bad Request! Consult the documentation",
+          title = BAD_REQUEST_MESSAGE,
           timestamp = LocalDateTime.now(),
           status = HttpStatus.BAD_REQUEST.value(),
           exception = ex.javaClass.toString(),
@@ -73,7 +69,7 @@ class RestExceptionHandler {
     return ResponseEntity.status(HttpStatus.BAD_REQUEST)
       .body(
         ExceptionDetails(
-          title = "Bad Request! Consult the documentation",
+          title = BAD_REQUEST_MESSAGE,
           timestamp = LocalDateTime.now(),
           status = HttpStatus.BAD_REQUEST.value(),
           exception = ex.javaClass.toString(),
