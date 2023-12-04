@@ -1,3 +1,9 @@
+# Nota
+
+Esse repositório foi criado usando como base o repositório: https://github.com/cami-la/credit-application-system
+
+O mesmo foi alterado para o desafio bootcamp da DIO 
+
 <h1>request-credit-system</h1>
 <p align="center">API Rest para um Sistema de Analise de Solicitação de Crédito</p>
 <p align="center">
