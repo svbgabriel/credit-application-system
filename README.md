@@ -8,7 +8,7 @@
         <img src="https://img.shields.io/badge/Kotlin-v1.7.22-purple.svg" />
     </a>
     <a alt="Spring Boot">
-        <img src="https://img.shields.io/badge/Spring%20Boot-v3.0.3-brightgreen.svg" />
+        <img src="https://img.shields.io/badge/Spring%20Boot-v3.0.4-brightgreen.svg" />
     </a>
     <a alt="Gradle">
         <img src="https://img.shields.io/badge/Gradle-v7.6-lightgreen.svg" />
